@@ -1,0 +1,35 @@
+{
+  "name": "fe-monitor",
+  "version": "1.0.0",
+  "description": "前端监控Demo",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -c ./webpack.config.js --env production",
+    "start": "webpack server -c ./webpack.config.js --env development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linmingdao/fe-monitor.git"
+  },
+  "author": "mingdao.lin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/linmingdao/fe-monitor/issues"
+  },
+  "homepage": "https://github.com/linmingdao/fe-monitor#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/plugin-transform-runtime": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/runtime": "^7.18.3",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2",
+    "webpack-merge": "^5.8.0"
+  }
+}
