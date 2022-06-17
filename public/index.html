@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>前端监控</title>
   </head>
-  <body style="background-color: rgb(125, 125, 125)">
-    <div>前端监控</div>
+  <body style="background-color: rgb(125, 125, 125); color: #fff">
+    <div id="container">
+      <div class="content">
+        <input type="button" value="点击抛出js错误" onclick="jsErrorClick()" />
+        <input
+          type="button"
+          value="点击抛出promise错误"
+          onclick="promiseErrorClick()"
+        />
+      </div>
+    </div>
+    <script>
+      function jsErrorClick() {
+        window.someVar.error = "error";
+      }
+    </script>
   </body>
 </html>
