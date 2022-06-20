@@ -45,21 +45,37 @@
 
 ### 1、P1_1, 开始 ~ 结束, 监控js错误
 
-```javascript
-window.addEventListener("error", function(event) {
-    // 从event上拿到错误信息
-})
+#### 获取异常出现交互的最后一个事件
 
+```JavaScript
 // 技巧，不妨碍用户交互，比如滚动、点击等操作
 document.addEventListener(
     eventType,
     (event) => {
-        // ...
+        // 记录event
     }, {
         capture: true, // 捕获阶段执行
         passive: true, // 默认不阻止默认事件
     }
 );
 ```
+
+#### 监控js异常
+
+```JavaScript
+window.addEventListener("error", function(event) {
+    // 从event上拿到错误信息
+})
+```
+
+#### 监控promise异常
+
+```JavaScript
+window.addEventListener("unhandledrejection", function(event) {
+    // 从event上拿到错误信息
+});
+```
+
+#### 监控资源加载错误
 
 ### 2、P2_2, 开始 ~ 00:40:50, 日志上报到阿里SSl服务
