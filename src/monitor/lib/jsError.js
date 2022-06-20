@@ -1,7 +1,10 @@
+import getLastEvent from "../utils/getLastEvent";
+import getSelector from "../utils/getSelector";
+
 export function injectJsError() {
   // 监听全局未捕获的js错误
   window.addEventListener("error", function (event) {
-    console.log(event);
+    let lastEvent = getLastEvent();
     // 上报日志的数据结构
     let log = {
       king: "stability", // 监控指标的大类
@@ -12,7 +15,7 @@ export function injectJsError() {
       filename: event.filename, // 报错的文件
       position: `${event.lineno}:${event.colno}`, // 报错的位置
       stack: event.error.stack, // 报错的堆栈信息
-      selector: "", // 报错的元素信息
+      selector: lastEvent ? getSelector(lastEvent.path) : "", // 代表最后一个操作的元素（报错的元素信息）
     };
     console.log(log);
   });

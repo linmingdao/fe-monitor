@@ -40,3 +40,15 @@
 ### 2、可视化埋点
 
 ### 3、无痕埋点(全埋点)
+
+## 四、核心技术点
+
+### 1、监控js错误
+
+```javascript
+window.addEventListener("error", function(event) {
+    // 从event上拿到错误信息
+})
+
+// 技巧，不妨碍用户交互，比如滚动、点击等操作
+```
