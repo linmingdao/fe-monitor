@@ -14,8 +14,15 @@ function getSelectors(path) {
     .join(" ");
 }
 
-export default function (path) {
-  if (Array.isArray(path)) {
-    return getSelectors(path);
+export default function (pathsOrTarget) {
+  if (Array.isArray(pathsOrTarget)) {
+    return getSelectors(pathsOrTarget);
+  } else {
+    let paths = [];
+    while (pathsOrTarget) {
+      paths.push(pathsOrTarget);
+      pathsOrTarget = pathsOrTarget.parentNode;
+    }
+    return getSelectors(paths);
   }
 }

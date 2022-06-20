@@ -36,6 +36,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: "head",
+      // https://www.w3school.com.cn/tags/att_script_defer.asp
+      // https://github.com/jantimon/html-webpack-plugin#options
+      scriptLoading: "blocking",
       title: "前端监控Demo",
       filename: path.resolve(__dirname, "dist/index.html"),
       template: path.resolve(__dirname, "public/index.html"),

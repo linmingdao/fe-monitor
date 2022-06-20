@@ -78,4 +78,19 @@ window.addEventListener("unhandledrejection", function(event) {
 
 #### 监控资源加载错误
 
+```JavaScript
+window.addEventListener("error", function(event) {
+    // 从event上拿到资源加载错误的信息
+})
+```
+
+```JavaScript
+// 有个坑注意一下：HtmlWebpackPlugin加载script的一个策略
+new HtmlWebpackPlugin({
+    // https://www.w3school.com.cn/tags/att_script_defer.asp
+    // https://github.com/jantimon/html-webpack-plugin#options
+    scriptLoading: "blocking" // 默认值是defer
+})
+```
+
 ### 2、P2_2, 开始 ~ 00:40:50, 日志上报到阿里SSl服务

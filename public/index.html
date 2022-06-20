@@ -4,6 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>前端监控</title>
+    <!-- <script>
+      window.addEventListener(
+        "error",
+        function (event) {
+          console.log(event);
+        },
+        true
+      );
+    </script> -->
   </head>
   <body style="background-color: rgb(125, 125, 125); color: #fff">
     <div id="container">
@@ -29,7 +38,7 @@
 
       function promiseErrorClick() {
         new Promise((resolve, reject) => {
-          window.someVar.error = "error";
+          // window.someVar.error = "error";
           reject("error");
         })
           // .catch((err) => console.log(err))
@@ -37,5 +46,6 @@
           .then((result) => console.log(result));
       }
     </script>
+    <script type="application/javascript" src="someError.js"></script>
   </body>
 </html>
