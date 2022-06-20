@@ -1,6 +1,6 @@
-import getLastEvent from "../utils/getLastEvent";
 import getSelector from "../utils/getSelector";
 import isResourceElement from "../utils/isResourceElement";
+import trackter from "../utils/trackter";
 
 // onerror vs addEventListener -> https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
 export function injectResourceError() {
@@ -9,8 +9,8 @@ export function injectResourceError() {
     "error",
     function (event) {
       if (!isResourceElement(event)) return;
-      // 上报日志的数据结构
-      let log = {
+      // 上报日志
+      trackter.send({
         king: "stability", // 监控指标的大类
         type: "error", // 小类型，这是一个错误
         errorType: "resourceError", // 资源加载错误
@@ -19,9 +19,7 @@ export function injectResourceError() {
         filename: event.target.src || event.target.href, // 报错的文件
         tagName: event.target.tagName.toLowerCase(),
         selector: getSelector(event.target), // 代表最后一个操作的元素（报错的元素信息）
-      };
-      // 上报日志
-      console.log(log);
+      });
     },
     true
   );

@@ -1,5 +1,6 @@
 import getLastEvent from "../utils/getLastEvent";
 import getSelector from "../utils/getSelector";
+import trackter from "../utils/trackter";
 
 // onerror vs addEventListener -> https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener
 export function injectPromiseError() {
@@ -17,6 +18,7 @@ export function injectPromiseError() {
       if (typeof reason === "string") {
         message = reason;
       } else if (typeof reason === "object") {
+        message = reason.message;
         // 解析：at http://localhost:8080/:26:32
         if (reason.stack) {
           let matchResult = reason.stack.match(/at\s+(.+):(\d+):(\d+)/);
@@ -25,10 +27,10 @@ export function injectPromiseError() {
           colno = matchResult[3];
           stack = reason.stack;
         }
-        message = reason.message;
       }
+
       // 上报日志
-      console.log({
+      trackter.send({
         king: "stability", // 监控指标的大类
         type: "error", // 小类型，这是一个错误
         errorType: "promiseError", // JS执行错误
