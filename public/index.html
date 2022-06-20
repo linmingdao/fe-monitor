@@ -8,8 +8,14 @@
   <body style="background-color: rgb(125, 125, 125); color: #fff">
     <div id="container">
       <div class="content">
-        <input type="button" value="点击抛出js错误" onclick="jsErrorClick()" />
         <input
+          id="jsErrorBtn"
+          type="button"
+          value="点击抛出js错误"
+          onclick="jsErrorClick()"
+        />
+        <input
+          id="promiseBtn"
           type="button"
           value="点击抛出promise错误"
           onclick="promiseErrorClick()"
@@ -19,6 +25,16 @@
     <script>
       function jsErrorClick() {
         window.someVar.error = "error";
+      }
+
+      function promiseErrorClick() {
+        new Promise((resolve, reject) => {
+          window.someVar.error = "error";
+          reject("error");
+        })
+          // .catch((err) => console.log(err))
+          .finally(() => console.log())
+          .then((result) => console.log(result));
       }
     </script>
   </body>

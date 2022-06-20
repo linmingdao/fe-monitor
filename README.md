@@ -43,7 +43,7 @@
 
 ## 四、核心技术点
 
-### 1、监控js错误
+### 1、P1_1, 开始 ~ 结束, 监控js错误
 
 ```javascript
 window.addEventListener("error", function(event) {
@@ -51,4 +51,15 @@ window.addEventListener("error", function(event) {
 })
 
 // 技巧，不妨碍用户交互，比如滚动、点击等操作
+document.addEventListener(
+    eventType,
+    (event) => {
+        // ...
+    }, {
+        capture: true, // 捕获阶段执行
+        passive: true, // 默认不阻止默认事件
+    }
+);
 ```
+
+### 2、P2_2, 开始 ~ 00:40:50, 日志上报到阿里SSl服务
