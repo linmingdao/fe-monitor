@@ -45,17 +45,30 @@
 
 ### 1、P1_1, 开始 ~ 结束, 监控js错误
 
-#### 获取异常出现交互的最后一个事件
+#### 当异常出现时，获取用户交互的最后一个事件
+
+[MDN: EventTarget.addEventListener()](https://developer.mozilla.org/zh-CN/docs/Web/API/EventTarget/addEventListener#%E4%BD%BF%E7%94%A8_passive_%E6%94%B9%E5%96%84%E7%9A%84%E6%BB%9A%E5%B1%8F%E6%80%A7%E8%83%BD)
+
+[UI Events, event-flow](https://www.w3.org/TR/DOM-Level-3-Events/#event-flow)
+
+[preventDefault, stopPropagation](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/preventDefault)
+
+[introduction-to-dom-events](https://dom.spec.whatwg.org/#introduction-to-dom-events)
+
+[events_order](https://www.quirksmode.org/js/events_order.html#link4)
 
 ```JavaScript
-// 技巧，不妨碍用户交互，比如滚动、点击等操作
+// 技巧，不妨碍用户交互，比如滚动、点击等操作 -> 配置 passive 为 true
+// 为了一定可以获取事件对象，要设置 capture 为 true，因为用户可能会把事件阻止冒泡，导致冒泡阶段无法记录交互事件
 document.addEventListener(
     eventType,
     (event) => {
         // 记录event
     }, {
         capture: true, // 捕获阶段执行
-        passive: true, // 默认不阻止默认事件
+        passive: true, // 默认不阻止默认事件（使用 passive 改善的滚屏性能）
+        // https://www.w3.org/TR/DOM-Level-3-Events/#event-flow
+        // once, signal,
     }
 );
 ```
@@ -87,9 +100,10 @@ window.addEventListener("error", function(event) {
 ```JavaScript
 // 有个坑注意一下：HtmlWebpackPlugin加载script的一个策略
 new HtmlWebpackPlugin({
+    // <script defer src=""></script>
     // https://www.w3school.com.cn/tags/att_script_defer.asp
     // https://github.com/jantimon/html-webpack-plugin#options
-    scriptLoading: "blocking" // 默认值是defer
+    scriptLoading: "blocking" // 不配置该选项默认值是：defer
 })
 ```
 
