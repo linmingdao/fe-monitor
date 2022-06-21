@@ -57,6 +57,10 @@
 
 [events_order](https://www.quirksmode.org/js/events_order.html#link4)
 
+[DOM0、DOM1、DOM2、DOM3, DOM0级事件、DOM2级事件，JavaScript高级程序设计](https://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/level-one-html.html)
+
+[DOM0、DOM1、DOM2、DOM3, DOM0级事件、DOM2级事件](https://juejin.cn/post/6844903846431424525)
+
 ```JavaScript
 // 技巧，不妨碍用户交互，比如滚动、点击等操作 -> 配置 passive 为 true
 // 为了一定可以获取事件对象，要设置 capture 为 true，因为用户可能会把事件阻止冒泡，导致冒泡阶段无法记录交互事件
