@@ -38,8 +38,8 @@
 
       function promiseErrorClick() {
         new Promise((resolve, reject) => {
-          // window.someVar.error = "error";
-          reject("error");
+          window.someVar.error = "error";
+          // reject("error");
         })
           // .catch((err) => console.log(err))
           .finally(() => console.log())
