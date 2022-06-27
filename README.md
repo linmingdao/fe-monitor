@@ -112,3 +112,13 @@ new HtmlWebpackPlugin({
 ```
 
 ### 2、P2_2, 开始 ~ 00:40:50, 日志上报到阿里SSl服务
+
+### 3、监控Ajax错误
+
+### 4、P3_3, 00:27:25 ~ 00:27:25, 监控白屏原理
+
+#### 读取样例
+
+[elementsFromPoint api 采样](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/elementsFromPoint)
+
+#### onload
