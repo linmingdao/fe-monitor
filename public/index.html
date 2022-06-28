@@ -30,6 +30,7 @@
           onclick="promiseErrorClick()"
         />
       </div>
+      <div id="blank-content" style="word-break: break-all; color: #000"></div>
     </div>
     <script>
       function jsErrorClick() {
@@ -45,6 +46,9 @@
           .finally(() => console.log())
           .then((result) => console.log(result));
       }
+    </script>
+    <script>
+      // document.getElementById("blank-content").innerHTML = "@".repeat(9999);
     </script>
     <script type="application/javascript" src="someError.js"></script>
   </body>

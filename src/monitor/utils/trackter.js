@@ -5,6 +5,7 @@ let userAgent = require("user-agent");
 
 function getExtraData() {
   return {
+    king: "stability", // 监控指标的大类
     title: document.title,
     url: location.href, // 访问哪个路径报错
     timestamp: Date.now(),

@@ -13,10 +13,8 @@ export function injectJsError() {
       let lastEvent = getLastEvent();
       // 上报日志的数据结构
       trackter.send({
-        king: "stability", // 监控指标的大类
         type: "error", // 小类型，这是一个错误
         errorType: "jsError", // JS执行错误
-        url: location.href, // 访问哪个路径报错
         message: event.message, // 报错信息
         filename: event.filename, // 报错的文件
         position: `${event.lineno}:${event.colno}`, // 报错的位置

@@ -11,10 +11,8 @@ export function injectResourceError() {
       if (!isResourceElement(event)) return;
       // 上报日志
       trackter.send({
-        king: "stability", // 监控指标的大类
         type: "error", // 小类型，这是一个错误
         errorType: "resourceError", // 资源加载错误
-        url: location.href, // 访问哪个路径报错
         message: "资源加载错误", // 报错信息
         filename: event.target.src || event.target.href, // 报错的文件
         tagName: event.target.tagName.toLowerCase(),

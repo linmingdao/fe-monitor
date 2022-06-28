@@ -31,10 +31,8 @@ export function injectPromiseError() {
 
       // 上报日志
       trackter.send({
-        king: "stability", // 监控指标的大类
         type: "error", // 小类型，这是一个错误
         errorType: "promiseError", // JS执行错误
-        url: location.href, // 访问哪个路径报错
         message, // 报错信息
         filename, // 报错的文件
         position: `${lineno}:${colno}`, // 报错的位置
