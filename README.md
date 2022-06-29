@@ -122,3 +122,5 @@ new HtmlWebpackPlugin({
 [elementsFromPoint api 采样](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/elementsFromPoint)
 
 #### onload
+
+控制取样执行的时机
