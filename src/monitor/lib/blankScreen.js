@@ -53,6 +53,7 @@ export function injectBlankScreen() {
         window.innerHeight / 2
       );
       trackter.send({
+        king: "stability", // 监控指标的大类
         type: "blank",
         emptyPoints, // 采样的空白点
         screen: `${window.screen.width}x${window.screen.height}`, // 屏幕分辨率
