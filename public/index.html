@@ -48,7 +48,24 @@
       }
     </script>
     <script>
-      // document.getElementById("blank-content").innerHTML = "@".repeat(9999);
+      document.getElementById("blank-content").innerHTML = "@".repeat(9999);
+      // DOM解析完成，即使依赖的资源文件未加载完成也会触发该事件
+      document.addEventListener("DOMContentLoaded", () => {
+        const start = Date.now();
+        while (Date.now() - start < 1000) {}
+      });
+      document.addEventListener("load", () => {
+        const start = Date.now();
+        while (Date.now() - start < 3000) {}
+      });
+      setTimeout(() => {
+        const content = document.getElementsByClassName("content")[0];
+        const h1 = document.createElement("h1");
+        h1.innerHTML = "我是这个页面最右意义的内容";
+        // 通过elementtiming属性手动指定页面最右意义元素
+        h1.setAttribute("elementtiming", "meaningful");
+        content.appendChild(h1);
+      }, 2000);
     </script>
     <script type="application/javascript" src="someError.js"></script>
   </body>
