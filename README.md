@@ -152,3 +152,7 @@ new HtmlWebpackPlugin({
 * 顶塔
 
 商业神策
+
+## 与框架无关、准确度高、声明式的埋点采集方案
+
+https://github.com/linmingdao/tag-deposit
